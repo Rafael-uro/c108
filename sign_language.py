@@ -27,7 +27,7 @@ while True:
              #O código vai aqui  
                 for tip in finger_tips:
                 #obtendo a posição da ponta do ponto de referência e desenhando O círculo azul
-                    x,y = int (lm_list[tip].x*w), int(lm_list[tip].y*h)
+                    x,y = int(lm_list[tip].x*w), int(lm_list[tip].y*h)
                     cv2. circle(img, (x,y), 15, (255, 0, 0), cv2.FILLED)
                 #se o dedo estiver dobrado, mudar a cor para verde
                     if lm_list[tip].x < lm_list[tip - 3].x:
