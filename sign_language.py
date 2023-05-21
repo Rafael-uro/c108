@@ -25,16 +25,16 @@ while True:
                 lm_list.append(lm)
 
              #O código vai aqui  
-                for tip in finger_tips:
+            for tip in finger_tips:
                 #obtendo a posição da ponta do ponto de referência e desenhando O círculo azul
-                    x,y = int(lm_list[tip].x*w), int(lm_list[tip].y*h)
-                    cv2. circle(img, (x,y), 15, (255, 0, 0), cv2.FILLED)
+                x,y = int(lm_list[tip].x*w), int(lm_list[tip].y*h)
+                cv2. circle(img, (x,y), 15, (255, 0, 0), cv2.FILLED)
                 #se o dedo estiver dobrado, mudar a cor para verde
-                    if lm_list[tip].x < lm_list[tip - 3].x:
-                       cv2. circle(img, (x,y), 15, (0, 255, 0), cv2. FILLED)
-                       finger_fold_status.append(True)
-                    else:
-                        finger_fold_status.append(False)
+                if lm_list[tip].x < lm_list[tip - 3].x:
+                   cv2. circle(img, (x,y), 15, (0, 255, 0), cv2. FILLED)
+                   finger_fold_status.append(True)
+                else:
+                   finger_fold_status.append(False)
                 if all(finger_fold_status):
                     #verificando se O polegar está para cima
                     if lm_list[thumb_tip].y < lm_list[thumb_tip-1].y < lm_list[thumb_tip-2].y:
